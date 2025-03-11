@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Enter {{ data['company-name-input'] }}'s previous address
+      </h1>
+     
+      
+        <div class="govuk-form-group">
+
+          <label class="govuk-label" for="previous-address-line-1">
+            Address line 1
+          </label>
+          <input class="govuk-input" id="previous-address-line-1" name="previous-address-line-1" type="text" autocomplete="previous-address-line-1">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="previous-address-line-2">
+            Address line 2 (optional)
+          </label>
+          <input class="govuk-input" id="previous-address-line-2" name="previous-address-line-2" type="text" autocomplete="previous-address-line-2">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="previous-address-town">
+            Town or city
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="previous-address-town" name="previous-address-town" type="text" autocomplete="previous-address-town">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="previous-address-county">
+            County (optional)
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="previous-address-county" name="previous-address-county" type="text">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="previous-address-postcode">
+            Postcode
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="previous-address-postcode" name="previous-address-postcode" type="text" autocomplete="previous-postal-code">
+        </div>
+      </fieldset>
+
+          <a href="check-answers-previous-address.html">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button> </a>
+      </form>
+      <p class="govuk-body">
+        <a href="#" class="govuk-link govuk-link--no-visited-state">Return to Smith and Harpers Pension Scheme</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

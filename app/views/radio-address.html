@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <form class="form" action="/radio-address-answer"  method="post">
+
+        <div class="govuk-form-group" id="form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="radioName-error">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Has {{ data['company-name-input'] }} used this address for at least 1 year?
+              </h1>
+            </legend>
+            <p id="radioName-error" class="govuk-error-message" style="display:none;">
+              <span class="govuk-visually-hidden">Error:</span> Please select an option.
+            </p>
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="radioName" name="radioName" type="radio" value="Yes">
+                <label class="govuk-label govuk-radios__label" for="changedName">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="radioName-2" name="radioName" type="radio" value="No">
+                <label class="govuk-label govuk-radios__label" for="changedName-2">
+                  No
+                </label>
+              </div>
+            </div>
+          
+          </fieldset>
+        </div>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button> 
+      </form>
+      <p class="govuk-body">
+        <a href="#" class="govuk-link govuk-link--no-visited-state">Return to Smith and Harpers Pension Scheme</a>
+      </p>
+    </div>
+  </div>
+
+
+  <!--If else statement 
+
+  <script>
+    function redirectUser() {
+      const form = document.getElementById('redirectForm');
+      const radioValue = form.elements['radioName'].value;
+      const errorMessage = document.getElementById('radioName-error');
+      const formGroup = document.getElementById('form-group');
+
+      if (!radioValue) {
+      errorMessage.style.display = 'block';
+      formGroup.classList.add('govuk-form-group--error');
+      return false; // Prevent form submission
+    }
+
+      if (radioValue === 'Yes') {
+        form.action = "/check-answers";
+      } else if (radioValue === 'No') {
+        form.action = "/radio-trading" ;
+      }
+  
+      return true;
+    }
+
+  </script> -->
+
+    
+{% endblock %}

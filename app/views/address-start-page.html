@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Start page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ data['company-name-input'] }} address 
+      </h1>
+
+      <p>You will need to tell us {{ data['company-name-input'] }}'s :</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>current address</li>
+        <li>previous address if {{ data['company-name-input'] }} has used this address for less than 1 year </li>
+      </ul>
+
+      <a href="company-name-postcode.html">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button></a>
+      <p class="govuk-body">
+        <a href="#" class="govuk-link govuk-link--no-visited-state">Return to Smith and Harpers Pension Scheme</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">
+      Check your answers
+    </h1>
+    
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          {{ data['company-name-input'] }} address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['address-line-1'] }} <br> 
+          {{ data['address-line-2'] }} <br>
+          {{ data['address-town'] }} <br>
+          {{ data['address-county'] }} <br>
+          {{ data['address-postcode'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="enter-address-manually.html">Change<span class="govuk-visually-hidden"> Address</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has {{ data['company-name-input'] }} used this address for at least 1 year? 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['radioName'] }}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="radio-address.html">Change<span class="govuk-visually-hidden"> Radio name</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Has {{ data['company-name-input'] }} been trading for at least 1 year? 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['radioTrading'] }} 
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="radio-trading.html">Change<span class="govuk-visually-hidden"> Radio Trading</span></a>
+        </dd>
+      </div>
+    </dl>
+
+    <form action="/section-completed" method="post" novalidate>
+
+      {{ govukButton({
+        text: "Save and continue"
+      }) }}
+
+    </form>
+    <p class="govuk-body">
+      <a href="#" class="govuk-link govuk-link--no-visited-state">Return to Smith and Harpers Pension Scheme</a>
+    </p>
+  </div>
+
+</div> 
+
+
+
+
+{% endblock %}
